@@ -7,32 +7,50 @@
     <style>
         body {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center; /* Alinha verticalmente no centro */
             height: 100vh;
             margin: 0;
-            background: url('/static/img01.jpg') no-repeat center center fixed;
+            background: url('/static/img02.png') no-repeat center center fixed;
             background-size: cover;
-            font-family: Arial, sans-serif;
-            position: relative; /* Adiciona posição relativa ao body */
+            font-family: Brush Script MT, Brush Script Std, cursive;
+            position: relative;
+            overflow: hidden; /* Para evitar rolagem desnecessária */
+        }
+        .logo {
+            position: fixed; /* Fixar o logo no topo */
+            top: 20px; /* Distância do topo */
+            width: 80px; /* Largura da imagem */
+            height: 80px; /* Altura da imagem */
+            border-radius: 50%; /* Torna a imagem redonda */
+            border: 3px solid white; /* Borda branca ao redor da imagem */
+            z-index: 1; /* Garante que o logo fique acima de outros elementos */
         }
         .container {
             text-align: center;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.3);
             padding: 20px;
             border-radius: 20px;
             color: white;
             text-shadow: 1px 1px 2px black;
+            max-width: 90%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         .promise {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 40px; /* Aumenta o espaço abaixo da promessa */
+            font-size: 24px; /* Aumentado de 22px para 24px */
+            margin-bottom: 40px;
+            word-wrap: break-word;
         }
         .buttons {
             display: flex;
             justify-content: center;
-            gap: 15px; /* Aumenta o espaçamento entre os botões */
+            gap: 15px;
+            flex-wrap: wrap; /* Permite que os botões se ajustem em telas menores */
         }
         .btn {
             padding: 12px 15px;
@@ -41,6 +59,7 @@
             cursor: pointer;
             color: white;
             font-size: 16px;
+            transition: background-color 0.3s; /* Adiciona uma transição suave */
         }
         .btn-dark {
             background-color: #202020;
@@ -48,35 +67,57 @@
         .btn-dark:hover {
             background-color: #555;
         }
+
         .social-icon {
-            position: absolute; /* Posiciona o ícone de forma absoluta */
-            bottom: 20px; /* Distância do fundo da página */
-            left: 50%; /* Centraliza horizontalmente */
-            transform: translateX(-50%); /* Ajusta a posição para centralizar */
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            align-items: center; /* Alinha verticalmente o ícone e o texto */
-            gap: 10px; /* Menos espaço entre o ícone e o texto */
-            color: #E4405F; /* Cor padrão do ícone do Instagram */
+            align-items: center;
+            gap: 10px; /* Espaçamento entre o ícone e o texto */
+            color: #E4405F;
         }
         .social-icon a {
-            color: inherit; /* Herda a cor do pai */
+            color: inherit;
             text-decoration: none;
             display: flex;
-            align-items: center; /* Alinha verticalmente o ícone e o texto */
-            margin-top: -220px;
+            align-items: center;
+            margin-top: -130px;
         }
         .social-icon svg {
-            width: 40px;
+            width: 27px;
             height: 40px;
-            fill: #E4405F; /* Cor do ícone do Instagram */
-            margin-top: -5px; /* Ajusta a posição vertical do ícone */
+            fill: #E4405F;
+            margin-right: 5px; /* Espaço adicional entre o ícone e o texto */
         }
         .social-icon span {
-            color: white; /* Cor do texto */
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        /* Media Queries para responsividade */
+        @media (max-width: 600px) {
+            .promise {
+                font-size: 20px; /* Ajustado para manter a proporção em telas menores */
+            }
+            .btn {
+                font-size: 14px;
+                padding: 10px 12px;
+            }
+            .social-icon span {
+                font-size: 12px;
+            }
+            .social-icon svg {
+                margin-right: 3px; /* Ajuste de espaço para telas pequenas */
+            }
         }
     </style>
 </head>
 <body>
+    <img src="/static/igrejatemplo.jpg" alt="Logo" class="logo"> <!-- Imagem do logo -->
+
     <div class="container">
         <div id="promise-text" class="promise">{{ promessa }}</div>
         <div class="buttons">
@@ -86,11 +127,11 @@
     </div>
 
     <div class="social-icon">
-        <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-6a92f1d" href="https://www.instagram.com/prandrereysoficial/" target="_blank">
+        <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-6a92f1d" href="https://www.instagram.com/ministeriotemplodafe/" target="_blank">
             <svg class="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
                 <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
             </svg>
-            <span>prandrereysoficial</span>
+            <span>ministeriotemplodafe</span>
         </a>
     </div>
 

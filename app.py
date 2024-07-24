@@ -22,4 +22,4 @@ def get_random_promise():
     return jsonify(random_promise)  # Retorna o JSON da promessa completa
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
