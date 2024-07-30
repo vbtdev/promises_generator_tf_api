@@ -12,7 +12,7 @@
             justify-content: center; /* Alinha verticalmente no centro */
             height: 100vh;
             margin: 0;
-            background: url('/static/img02.png') no-repeat center center fixed;
+            background: url('/static/img/{{ imagem_fundo }}') no-repeat center center fixed;
             background-size: cover;
             font-family: Brush Script MT, Brush Script Std, cursive;
             position: relative;
@@ -57,12 +57,12 @@
             border: none;
             border-radius: 7px;
             cursor: pointer;
-            color: white;
+            color: #dee1e5;
             font-size: 16px;
             transition: background-color 0.3s; /* Adiciona uma transição suave */
         }
         .btn-dark {
-            background-color: #202020;
+            background-color: #26323d;
         }
         .btn-dark:hover {
             background-color: #555;
@@ -116,7 +116,7 @@
     </style>
 </head>
 <body>
-    <img src="/static/igrejatemplo.jpg" alt="Logo" class="logo"> <!-- Imagem do logo -->
+    <img src="/static/logo/igrejatemplo.jpg" alt="Logo" class="logo"> <!-- Imagem do logo -->
 
     <div class="container">
         <div id="promise-text" class="promise">{{ promessa }}</div>
